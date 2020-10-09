@@ -13,39 +13,57 @@ class ProductScreen extends StatelessWidget {
     return DefaultTabController(
       length: 4,
       child: Scaffold(
-        backgroundColor: Colors.white,
-        drawer: Drawer(),
+        // drawer: Drawer(),
         appBar: AppBar(
           iconTheme: new IconThemeData(color: Colors.black),
           elevation: 0,
           backgroundColor: Colors.white,
-          actions: [
-            IconButton(
-              icon: SvgPicture.asset("assets/icons/search.svg",
-                  color: Colors.black),
-              onPressed: () {},
-            ),
-            IconButton(
-                icon: SvgPicture.asset("assets/icons/cart.svg",
-                    color: Colors.black),
-                onPressed: () {}),
-            SizedBox(width: 20 / 2),
-          ],
-          toolbarHeight: 90,
-          bottom: TabBar(
-            indicatorColor: Colors.black,
-            isScrollable: true,
-            labelColor: Colors.black,
-            tabs: [
-              Tab(text: "Women"),
-              Tab(text: "Man"),
-              Tab(text: "Children"),
-              Tab(text: "Baby"),
+          flexibleSpace: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  TabBar(
+                    indicatorColor: Colors.black,
+                    isScrollable: true,
+                    labelColor: Colors.black,
+                    indicatorSize: TabBarIndicatorSize.label,
+                    tabs: [
+                      Tab(text: "Women"),
+                      Tab(text: "Man"),
+                      Tab(text: "Children"),
+                      Tab(text: "Baby"),
+                    ],
+                  ),
+                  IconButton(
+                    icon: SvgPicture.asset("assets/icons/search.svg",
+                        color: Colors.black),
+                    onPressed: () {},
+                  ),
+
+                  IconButton(
+                    icon: SvgPicture.asset("assets/icons/cart.svg",
+                        color: Colors.black),
+                    onPressed: () {},
+                  ),
+                  SizedBox(width: 5),
+
+                  // SvgPicture.asset("assets/icons/Shop Icon.svg"),
+                ],
+              ),
             ],
           ),
         ),
         body: TabBarView(
-          children: [Women(), Man(), Children(), Baby()],
+          children: [
+            Women(),
+            Man(),
+            Children(),
+            Baby(),
+          ],
         ),
       ),
     );
